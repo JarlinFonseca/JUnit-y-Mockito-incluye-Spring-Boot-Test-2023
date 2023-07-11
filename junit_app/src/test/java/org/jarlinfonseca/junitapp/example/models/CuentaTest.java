@@ -98,6 +98,7 @@ class CuentaTest {
 
     @Nested
     class CuentaOperacionesTest{
+        @Tag("cuenta")
         @Test
         void testDebitoCuenta() {
             cuenta.debito(new BigDecimal(100));
@@ -106,7 +107,7 @@ class CuentaTest {
             assertEquals(900, cuenta.getSaldo().intValue());
             assertEquals("900.12345", cuenta.getSaldo().toPlainString());
         }
-
+        @Tag("cuenta")
         @Test
         void testCreditoCuenta() {
             cuenta.credito(new BigDecimal(100));
@@ -115,9 +116,10 @@ class CuentaTest {
             assertEquals(1100, cuenta.getSaldo().intValue());
             assertEquals("1100.12345", cuenta.getSaldo().toPlainString());
         }
-
+        @Tag("cuenta")
+        @Tag("banco")
         @Test
-        void testTransferirDineroCuenta() {
+        void testTransferirDineroCuentas() {
             Cuenta cuenta1 = new Cuenta("John Doe", new BigDecimal("2500"));
             Cuenta cuenta2 = new Cuenta("Andres", new BigDecimal("1500.8989"));
 
@@ -132,6 +134,8 @@ class CuentaTest {
 
 
     @Test
+    @Tag("cuenta")
+    @Tag("error")
     void testDineroInsuficienteExceptionCuenta() {
         Exception exception = assertThrows(DineroInsuficienteException.class, () -> {
             cuenta.debito(new BigDecimal(1500));
@@ -144,6 +148,8 @@ class CuentaTest {
 
 
     @Test
+    @Tag("cuenta")
+    @Tag("banco")
     @DisplayName("Probando relaciones entre las cuentas y el banco con assertAll.")
     //@Disabled
     void testRelacionBancoCuentas() {
