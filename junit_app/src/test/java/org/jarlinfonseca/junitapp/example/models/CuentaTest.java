@@ -306,8 +306,7 @@ class CuentaTest {
         assertEquals(900, cuenta.getSaldo().intValue());
         assertEquals("900.12345", cuenta.getSaldo().toPlainString());
     }
-
-
+    
 }
 
 
