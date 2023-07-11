@@ -1,0 +1,52 @@
+-------------------------------------------------------------------------------
+Test set: org.jarlinfonseca.junitapp.example.models.CuentaTest
+-------------------------------------------------------------------------------
+Tests run: 72, Failures: 12, Errors: 0, Skipped: 8, Time elapsed: 8.436 s <<< FAILURE! - in org.jarlinfonseca.junitapp.example.models.CuentaTest
+testDebitoCuentaMethodSource{String}[6]  Time elapsed: 0.041 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest.testDebitoCuentaMethodSource(CuentaTest.java:404)
+
+testDebitoCuentaCsvSource2{String, String, String, String}[1]  Time elapsed: 0.042 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <John> but was: <Andres>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+
+testDebitoCuentaCsvSource2{String, String, String, String}[3]  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <maria> but was: <Maria>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+
+testDebitoCuentaCsvSource2{String, String, String, String}[5]  Time elapsed: 0.011 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Lucas> but was: <Luca>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+
+testDebitoCuentaCsvSource2{String, String, String, String}[6]  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:371)
+
+testDebitoCuentaCsvSource{String, String}[6]  Time elapsed: 0.008 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource(CuentaTest.java:357)
+
+testDebitoCuentaCsvFileSource{String}[7]  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource(CuentaTest.java:379)
+
+testDebitoCuentaCsvFileSource2{String, String, String, String}[1]  Time elapsed: 0.014 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <John> but was: <Andres>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+
+testDebitoCuentaCsvFileSource2{String, String, String, String}[3]  Time elapsed: 0.015 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <maria> but was: <Maria>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+
+testDebitoCuentaCsvFileSource2{String, String, String, String}[5]  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Lucas> but was: <Luca>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+
+testDebitoCuentaCsvFileSource2{String, String, String, String}[6]  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:393)
+
+testDebitoCuentaValueSource{String}[6]  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaValueSource(CuentaTest.java:348)
+

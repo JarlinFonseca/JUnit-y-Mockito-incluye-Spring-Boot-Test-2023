@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="8.436" tests="72" errors="0" skipped="8" failures="12">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app\target\test-classes;C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app\target\classes;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.2\junit-jupiter-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CO"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin"/>
+    <property name="sun.java.command" value="C:\Users\JARLIN~1.FON\AppData\Local\Temp\surefire18129806372205687912\surefirebooter4814252751649009185.jar C:\Users\jarlin.fonsecab_prag\AppData\Local\Temp\surefire18129806372205687912 2023-07-11T17-00-12_945-jvmRun1 surefire3437266418175438903tmp surefire_0522229278863853673tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app\target\test-classes;C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app\target\classes;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter\5.9.2\junit-jupiter-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\jarlin.fonsecab_prag\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\jarlin.fonsecab_prag"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-10-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11.0.17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\JARLIN~1.FON\AppData\Local\Temp\surefire18129806372205687912\surefirebooter4814252751649009185.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.17+10-LTS-269"/>
+    <property name="user.name" value="jarlin.fonsecab_prag"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\jarlin.fonsecab_prag\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\JARLIN~1.FON\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.17"/>
+    <property name="user.dir" value="C:\Users\jarlin.fonsecab_prag\Desktop\Curso JUnit y Mockito\junit_app"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.17\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Java\jdk-11.0.17\bin;C:\Program Files\Amazon\AWSCLIV2\;C:\tools;C:\Users\jarlin.fonsecab_prag\AppData\Local\Microsoft\WindowsApps;C:\Users\jarlin.fonsecab_prag\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jarlin.fonsecab_prag\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.2\bin;;C:\tools;C:\Users\jarlin.fonsecab_prag\apache-maven-3.9.3\bin;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.17+10-LTS-269"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="testDineroInsuficienteExceptionCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.708"/>
+  <testcase name="testSaldoCuentaDev" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0">
+    <skipped message="Assumption failed: assumption is not true" type="org.opentest4j.TestAbortedException">org.opentest4j.TestAbortedException: Assumption failed: assumption is not true
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest.testSaldoCuentaDev(CuentaTest.java:308)
+</skipped>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testSaldoCuentaDev2" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.025"/>
+  <testcase name="testRelacionBancoCuentas" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.038"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.202"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.012"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.01"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.011"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.008"/>
+  <testcase name="testDebitoCuentaMethodSource{String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.041">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest.testDebitoCuentaMethodSource(CuentaTest.java:404)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaRepetir{RepetitionInfo}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.01"/>
+  <testcase name="testDebitoCuentaRepetir{RepetitionInfo}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.008"/>
+  <testcase name="testDebitoCuentaRepetir{RepetitionInfo}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.059"/>
+  <testcase name="testDebitoCuentaRepetir{RepetitionInfo}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.005"/>
+  <testcase name="testDebitoCuentaRepetir{RepetitionInfo}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest" time="0.013"/>
+  <testcase name="pruebaTimeout2" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$EjemploTimeoutTest" time="0.968"/>
+  <testcase name="testTimeoutAssertions" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$EjemploTimeoutTest" time="4.029"/>
+  <testcase name="pruebaTimeout" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$EjemploTimeoutTest" time="0.106"/>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.042">
+    <failure message="expected: &lt;John&gt; but was: &lt;Andres&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <John> but was: <Andres>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+200 -> 100
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.006"/>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.006">
+    <failure message="expected: &lt;maria&gt; but was: &lt;Maria&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <maria> but was: <Maria>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+300 -> 300
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.004"/>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.011">
+    <failure message="expected: &lt;Lucas&gt; but was: &lt;Luca&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Lucas> but was: <Luca>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:370)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+750 -> 700
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvSource2{String, String, String, String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource2(CuentaTest.java:371)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+1000.12345 -> 1000.12345
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.012"/>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.009"/>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.012"/>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.015"/>
+  <testcase name="testDebitoCuentaCsvSource{String, String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvSource(CuentaTest.java:357)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+6 -> 1000.12345
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.007"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.006"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaCsvFileSource{String}[7]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.007">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource(CuentaTest.java:379)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.014">
+    <failure message="expected: &lt;John&gt; but was: &lt;Andres&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <John> but was: <Andres>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.015">
+    <failure message="expected: &lt;maria&gt; but was: &lt;Maria&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <maria> but was: <Maria>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008"/>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.007">
+    <failure message="expected: &lt;Lucas&gt; but was: &lt;Luca&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Lucas> but was: <Luca>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:391)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaCsvFileSource2{String, String, String, String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.006">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaCsvFileSource2(CuentaTest.java:393)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testDebitoCuentaValueSource{String}[1]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.004"/>
+  <testcase name="testDebitoCuentaValueSource{String}[2]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaValueSource{String}[3]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.009"/>
+  <testcase name="testDebitoCuentaValueSource{String}[4]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.005"/>
+  <testcase name="testDebitoCuentaValueSource{String}[5]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.008"/>
+  <testcase name="testDebitoCuentaValueSource{String}[6]" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest" time="0.007">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.jarlinfonseca.junitapp.example.models.CuentaTest$PruebasParametrizadasTest.testDebitoCuentaValueSource(CuentaTest.java:348)
+]]></failure>
+    <system-out><![CDATA[iniciando el metodo.
+Finalizando el método de prueba
+]]></system-out>
+  </testcase>
+  <testcase name="testProcesadores" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$VariableAmbienteTest" time="0.008"/>
+  <testcase name="testEnv" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$VariableAmbienteTest" time="0">
+    <skipped message="Environment variable [ENVIRONMENT] does not exist"/>
+  </testcase>
+  <testcase name="testEnvProdDisabled" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$VariableAmbienteTest" time="0.006"/>
+  <testcase name="testJavaHome" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$VariableAmbienteTest" time="0.004"/>
+  <testcase name="imprimirVariablesAmbiente" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$VariableAmbienteTest" time="0.286"/>
+  <testcase name="testDev" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0">
+    <skipped message="System property [ENV] does not exist"/>
+  </testcase>
+  <testcase name="testNO64" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0">
+    <skipped message="System property [os.arch] with value [amd64] does not match regular expression [.*32.*]"/>
+  </testcase>
+  <testcase name="testUsername" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0.033"/>
+  <testcase name="testJavaVersion" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0.011"/>
+  <testcase name="imprimirSystemProperties" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0.24"/>
+  <testcase name="testSolo64" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemPropertiesTest" time="0.005"/>
+  <testcase name="soloJdk11" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$JavaVersionTest" time="0.006"/>
+  <testcase name="soloJdk8" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$JavaVersionTest" time="0">
+    <skipped message="Disabled on JRE version: 11.0.17"/>
+  </testcase>
+  <testcase name="testNoJdk11" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$JavaVersionTest" time="0">
+    <skipped message="Disabled on JRE version: 11.0.17"/>
+  </testcase>
+  <testcase name="testNoWindows" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemaOperativoTest" time="0">
+    <skipped message="Disabled on operating system: Windows 10"/>
+  </testcase>
+  <testcase name="testSoloLinuxMac" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemaOperativoTest" time="0">
+    <skipped message="Disabled on operating system: Windows 10"/>
+  </testcase>
+  <testcase name="testSoloWindows" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$SistemaOperativoTest" time="0.004"/>
+  <testcase name="testCreditoCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaOperacionesTest" time="0.01"/>
+  <testcase name="testDebitoCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaOperacionesTest" time="0.006"/>
+  <testcase name="testTransferirDineroCuentas" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaOperacionesTest" time="0.016"/>
+  <testcase name="testSaldoCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaTestNombreSaldo" time="0.015"/>
+  <testcase name="testReferenciaCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaTestNombreSaldo" time="0.006"/>
+  <testcase name="testNombreCuenta" classname="org.jarlinfonseca.junitapp.example.models.CuentaTest$CuentaTestNombreSaldo" time="0.007"/>
+</testsuite>
