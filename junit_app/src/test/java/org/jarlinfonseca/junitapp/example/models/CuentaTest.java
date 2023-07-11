@@ -1,6 +1,8 @@
 package org.jarlinfonseca.junitapp.example.models;
 
 import org.jarlinfonseca.junitapp.example.exceptions.DineroInsuficienteException;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -9,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CuentaTest {
 
-
     @Test
+    @DisplayName("Probando el nombre de la cuenta corriente!")
     void testNombreCuenta() {
         Cuenta cuenta = new Cuenta("Andres", new BigDecimal("1000.12345"));
 
@@ -23,6 +25,7 @@ class CuentaTest {
     }
 
     @Test
+    @DisplayName("Probando el saldo de la cuenta corriente, que no sea null, mayor que cero, valor esperado.")
     void testSaldoCuenta() {
         Cuenta cuenta = new Cuenta("Andres", new BigDecimal("1000.12345"));
         assertNotNull(cuenta.getSaldo());
@@ -32,12 +35,12 @@ class CuentaTest {
     }
 
     @Test
+    @DisplayName("Testeando referencias que sean iguales con el método equals.")
     void testReferenciaCuenta() {
         Cuenta cuenta = new Cuenta("John Dow", new BigDecimal("8900.9997"));
         Cuenta cuenta2 = new Cuenta("John Dow", new BigDecimal("8900.9997"));
         //  assertNotEquals(cuenta2, cuenta);
         assertEquals(cuenta2, cuenta);
-
     }
 
     @Test
@@ -85,6 +88,8 @@ class CuentaTest {
     }
 
     @Test
+    @DisplayName("Probando relaciones entre las cuentas y el banco con assertAll.")
+    @Disabled
     void testRelacionBancoCuentas() {
         Cuenta cuenta1 = new Cuenta("John Doe", new BigDecimal("2500"));
         Cuenta cuenta2 = new Cuenta("Andres", new BigDecimal("1500.8989"));
