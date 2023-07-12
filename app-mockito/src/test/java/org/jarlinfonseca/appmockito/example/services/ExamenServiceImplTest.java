@@ -1,8 +1,11 @@
 package org.jarlinfonseca.appmockito.example.services;
 
+import org.jarlinfonseca.appmockito.example.Datos;
 import org.jarlinfonseca.appmockito.example.models.Examen;
 import org.jarlinfonseca.appmockito.example.repositories.ExamenRepository;
+import org.jarlinfonseca.appmockito.example.repositories.ExamenRepositoryImpl;
 import org.jarlinfonseca.appmockito.example.repositories.PreguntaRepository;
+import org.jarlinfonseca.appmockito.example.repositories.PreguntaRepositoryImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,19 +14,17 @@ import org.mockito.ArgumentMatcher;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.stubbing.Answer;
 
-import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMEN;
-import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES;
-import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES_ID_NEGATIVOS;
-import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES_ID_NULL;
-import static org.jarlinfonseca.appmockito.example.services.Datos.PREGUNTAS;
+import static org.jarlinfonseca.appmockito.example.Datos.EXAMEN;
+import static org.jarlinfonseca.appmockito.example.Datos.EXAMENES;
+import static org.jarlinfonseca.appmockito.example.Datos.EXAMENES_ID_NEGATIVOS;
+import static org.jarlinfonseca.appmockito.example.Datos.EXAMENES_ID_NULL;
+import static org.jarlinfonseca.appmockito.example.Datos.PREGUNTAS;
 import static org.mockito.Mockito.*;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -36,10 +37,10 @@ class ExamenServiceImplTest {
     private ExamenServiceImpl examenService;
 
     @Mock
-    private ExamenRepository examenRepository;
+    private ExamenRepositoryImpl examenRepository;
     
     @Mock
-    private PreguntaRepository preguntaRepository;
+    private PreguntaRepositoryImpl preguntaRepository;
 
     @Captor
     ArgumentCaptor<Long> captor;
@@ -268,6 +269,17 @@ class ExamenServiceImplTest {
 
         verify(examenRepository).guardar(any(Examen.class));
         verify(preguntaRepository).guardarVarias(anyList());
+    }
+
+
+    @Test
+    void testDoCallRealMethod() {
+        when(examenRepository.findAll()).thenReturn(Datos.EXAMENES);
+//        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(Datos.PREGUNTAS);
+        doCallRealMethod().when(preguntaRepository).findPreguntasPorExamenId(anyLong());
+        Examen examen = examenService.findExamenPorNombreConPreguntas("Matemáticas");
+        assertEquals(5L, examen.getId());
+        assertEquals("Matemáticas", examen.getNombre());
     }
 
 }

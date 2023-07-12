@@ -1,4 +1,4 @@
-package org.jarlinfonseca.appmockito.example.services;
+package org.jarlinfonseca.appmockito.example;
 
 import org.jarlinfonseca.appmockito.example.models.Examen;
 
