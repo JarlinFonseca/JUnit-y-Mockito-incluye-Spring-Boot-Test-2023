@@ -12,6 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatcher;
 import org.mockito.Captor;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.invocation.InvocationOnMock;
@@ -301,6 +302,34 @@ class ExamenServiceImplTest {
 
         verify(examenRepository).findAll();
         verify(preguntaRepository).findPreguntasPorExamenId(anyLong());
+    }
+
+    @Test
+    void testOrdenDeInvocaciones() {
+        when(examenRepository.findAll()).thenReturn(Datos.EXAMENES);
+
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+        examenService.findExamenPorNombreConPreguntas("Lenguaje");
+
+        InOrder inOrder = inOrder(preguntaRepository);
+        inOrder.verify(preguntaRepository).findPreguntasPorExamenId(5L);
+        inOrder.verify(preguntaRepository).findPreguntasPorExamenId(6L);
+    }
+
+    @Test
+    void testOrdenDeInvocaciones2() {
+        when(examenRepository.findAll()).thenReturn(Datos.EXAMENES);
+
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+        examenService.findExamenPorNombreConPreguntas("Lenguaje");
+
+        InOrder inOrder = inOrder(examenRepository, preguntaRepository);
+        inOrder.verify(examenRepository).findAll();
+        inOrder.verify(preguntaRepository).findPreguntasPorExamenId(5L);
+
+        inOrder.verify(examenRepository).findAll();
+        inOrder.verify(preguntaRepository).findPreguntasPorExamenId(6L);
+
     }
 
 }
