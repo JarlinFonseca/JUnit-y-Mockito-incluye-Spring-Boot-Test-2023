@@ -38,7 +38,7 @@ class ExamenServiceImplTest {
     }
 
     @Test
-    void findExamenPorNombre() {
+    void testFindExamenPorNombre() {
         when(examenRepository.findAll()).thenReturn(EXAMENES);
 
         Optional<Examen> examen = examenService.findExamenPorNombre("Matemáticas");
@@ -49,7 +49,7 @@ class ExamenServiceImplTest {
     }
 
     @Test
-    void findExamenPorNombreListaVacia() {
+    void testFindExamenPorNombreListaVacia() {
         List<Examen> datos = Collections.emptyList();
 
         when(examenRepository.findAll()).thenReturn(datos);
@@ -60,7 +60,7 @@ class ExamenServiceImplTest {
     }
 
     @Test
-    void findExamenPorNombreConPreguntas() {
+    void testFindExamenPorNombreConPreguntas() {
         when(examenRepository.findAll()).thenReturn(EXAMENES);
         when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
 
@@ -68,6 +68,31 @@ class ExamenServiceImplTest {
 
         assertEquals(5, examen.getPreguntas().size());
         assertTrue(examen.getPreguntas().contains("aritmética"));
+    }
+
+    @Test
+    void testFindExamenPorNombreConPreguntasVerify() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES);
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
+
+        Examen examen = examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        assertEquals(5, examen.getPreguntas().size());
+        assertTrue(examen.getPreguntas().contains("aritmética"));
+        verify(examenRepository).findAll();
+        verify(preguntaRepository).findPreguntasPorExamenId(anyLong());
+    }
+
+    @Test
+    void testNoExisteExamenVerify() {
+        when(examenRepository.findAll()).thenReturn(Collections.emptyList());
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
+
+        Examen examen = examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        assertNull(examen);
+        verify(examenRepository).findAll();
+        verify(preguntaRepository).findPreguntasPorExamenId(anyLong());
     }
 
 }
