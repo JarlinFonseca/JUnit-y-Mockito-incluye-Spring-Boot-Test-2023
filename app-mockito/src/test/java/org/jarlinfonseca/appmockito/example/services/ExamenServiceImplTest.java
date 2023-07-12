@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMEN;
 import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES;
 import static org.jarlinfonseca.appmockito.example.services.Datos.PREGUNTAS;
 import static org.mockito.Mockito.*;
@@ -94,6 +95,21 @@ class ExamenServiceImplTest {
         assertNull(examen);
         verify(examenRepository).findAll();
         verify(preguntaRepository).findPreguntasPorExamenId(anyLong());
+    }
+
+    @Test
+    void testGuardarExamen(){
+        Examen newExamen = EXAMEN;
+        newExamen.setPreguntas(PREGUNTAS);
+        when(examenRepository.guardar(any(Examen.class))).thenReturn(EXAMEN);
+        Examen examen= examenService.guardar(EXAMEN);
+
+        assertNotNull(examen.getId());
+        assertEquals(8L, examen.getId());
+        assertEquals("Física", examen.getNombre());
+
+        verify(examenRepository).guardar(any(Examen.class));
+        verify(preguntaRepository).guardarVarias(anyList());
     }
 
 }
