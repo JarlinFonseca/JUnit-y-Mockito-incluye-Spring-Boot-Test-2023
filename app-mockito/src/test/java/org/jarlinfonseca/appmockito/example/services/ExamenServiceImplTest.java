@@ -9,7 +9,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 
 import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMEN;
 import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES;
@@ -87,11 +89,14 @@ class ExamenServiceImplTest {
 
     @Test
     void testNoExisteExamenVerify() {
+        // Given
         when(examenRepository.findAll()).thenReturn(Collections.emptyList());
         when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
 
+        // When
         Examen examen = examenService.findExamenPorNombreConPreguntas("Matemáticas");
 
+        // Then
         assertNull(examen);
         verify(examenRepository).findAll();
         verify(preguntaRepository).findPreguntasPorExamenId(anyLong());
@@ -99,11 +104,23 @@ class ExamenServiceImplTest {
 
     @Test
     void testGuardarExamen(){
+        // Given
         Examen newExamen = EXAMEN;
         newExamen.setPreguntas(PREGUNTAS);
-        when(examenRepository.guardar(any(Examen.class))).thenReturn(EXAMEN);
+        when(examenRepository.guardar(any(Examen.class))).then(new Answer<Examen>(){
+            Long secuencia = 8L;
+            @Override
+            public Examen answer(InvocationOnMock invocationOnMock) throws Throwable {
+                Examen examen = invocationOnMock.getArgument(0);
+                examen.setId(secuencia++);
+                return examen;
+            }
+        });
+
+        //When
         Examen examen= examenService.guardar(EXAMEN);
 
+        // Then
         assertNotNull(examen.getId());
         assertEquals(8L, examen.getId());
         assertEquals("Física", examen.getNombre());
