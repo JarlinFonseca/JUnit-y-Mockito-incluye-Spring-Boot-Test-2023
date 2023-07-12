@@ -2,26 +2,72 @@ package org.jarlinfonseca.appmockito.example.services;
 
 import org.jarlinfonseca.appmockito.example.models.Examen;
 import org.jarlinfonseca.appmockito.example.repositories.ExamenRepository;
-import org.jarlinfonseca.appmockito.example.repositories.ExamenRepositoryImpl;
+import org.jarlinfonseca.appmockito.example.repositories.PreguntaRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES;
+import static org.jarlinfonseca.appmockito.example.services.Datos.PREGUNTAS;
+import static org.mockito.Mockito.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@ExtendWith(MockitoExtension.class)
 class ExamenServiceImplTest {
+
+    @InjectMocks
+    private ExamenServiceImpl examenService;
+
+    @Mock
+    private ExamenRepository examenRepository;
+    
+    @Mock
+    private PreguntaRepository preguntaRepository;
+
+    @BeforeEach
+    void setUp() {
+
+    }
 
     @Test
     void findExamenPorNombre() {
-        ExamenRepository repository = new ExamenRepositoryImpl();
-        ExamenService service = new ExamenServiceImpl(repository);
-        Examen examen = service.findExamenPorNombre("Matemáticas");
-        List<Examen> datos =  Arrays.asList(new Examen(5L, "Matemáticas"), new Examen(6l, "Lenguaje"),
-                new Examen(7l, "Historia"));
+        when(examenRepository.findAll()).thenReturn(EXAMENES);
 
-        assertNotNull(examen);
-        assertEquals(5L, examen.getId());
-        assertEquals("Matemáticas", examen.getNombre());
+        Optional<Examen> examen = examenService.findExamenPorNombre("Matemáticas");
+
+        assertTrue(examen.isPresent());
+        assertEquals(5L, examen.orElseThrow().getId());
+        assertEquals("Matemáticas", examen.get().getNombre());
     }
+
+    @Test
+    void findExamenPorNombreListaVacia() {
+        List<Examen> datos = Collections.emptyList();
+
+        when(examenRepository.findAll()).thenReturn(datos);
+
+        Optional<Examen> examen = examenService.findExamenPorNombre("Matemáticas");
+
+        assertFalse(examen.isPresent());
+    }
+
+    @Test
+    void findExamenPorNombreConPreguntas() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES);
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
+
+        Examen examen = examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        assertEquals(5, examen.getPreguntas().size());
+        assertTrue(examen.getPreguntas().contains("aritmética"));
+    }
+
 }
