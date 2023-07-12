@@ -6,6 +6,7 @@ import org.jarlinfonseca.appmockito.example.repositories.PreguntaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatcher;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -15,6 +16,8 @@ import org.mockito.stubbing.Answer;
 
 import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMEN;
 import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES;
+import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES_ID_NEGATIVOS;
+import static org.jarlinfonseca.appmockito.example.services.Datos.EXAMENES_ID_NULL;
 import static org.jarlinfonseca.appmockito.example.services.Datos.PREGUNTAS;
 import static org.mockito.Mockito.*;
 
@@ -129,4 +132,67 @@ class ExamenServiceImplTest {
         verify(preguntaRepository).guardarVarias(anyList());
     }
 
+    @Test
+    void testManejoException(){
+        when(examenRepository.findAll()).thenReturn(EXAMENES_ID_NULL);
+        when(preguntaRepository.findPreguntasPorExamenId(isNull())).thenThrow(IllegalArgumentException.class);
+        Exception exception = assertThrows(IllegalArgumentException.class, ()->{
+            examenService.findExamenPorNombreConPreguntas("Matemáticas");
+        });
+        assertEquals(IllegalArgumentException.class, exception.getClass());
+
+        verify(examenRepository).findAll();
+        verify(preguntaRepository).findPreguntasPorExamenId(isNull());
+    }
+
+    @Test
+    void testArgumentMatchers() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES);
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(PREGUNTAS);
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        verify(examenRepository).findAll();
+       // verify(preguntaRepository).findPreguntasPorExamenId(argThat(arg -> arg!=null && arg.equals(5L)));
+        verify(preguntaRepository).findPreguntasPorExamenId(argThat(arg -> arg!=null && arg >= 5L));
+        //verify(preguntaRepository).findPreguntasPorExamenId(eq(5L));
+    }
+
+    @Test
+    void testArgumentMatchers2() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES_ID_NEGATIVOS);
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(Datos.PREGUNTAS);
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        verify(examenRepository).findAll();
+        verify(preguntaRepository).findPreguntasPorExamenId(argThat(new MiArgsMatchers()));
+    }
+
+    @Test
+    void testArgumentMatchers3() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES_ID_NEGATIVOS);
+        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(Datos.PREGUNTAS);
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        verify(examenRepository).findAll();
+        verify(preguntaRepository).findPreguntasPorExamenId(argThat((argument)->argument != null && argument > 0));
+
+    }
+
+    public static class MiArgsMatchers implements ArgumentMatcher<Long> {
+
+        private Long argument;
+
+        @Override
+        public boolean matches(Long argument) {
+            this.argument = argument;
+            return argument != null && argument > 0;
+        }
+
+        @Override
+        public String toString() {
+            return "es para un mensaje personalizado de error " +
+                    "que imprime mockito en caso de que falle el test "
+                    + argument + " debe ser un entero positivo";
+        }
+    }
 }
