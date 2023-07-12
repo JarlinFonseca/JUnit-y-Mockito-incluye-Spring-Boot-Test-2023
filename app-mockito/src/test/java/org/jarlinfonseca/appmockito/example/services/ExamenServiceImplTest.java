@@ -6,7 +6,9 @@ import org.jarlinfonseca.appmockito.example.repositories.PreguntaRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.ArgumentMatcher;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -38,6 +40,9 @@ class ExamenServiceImplTest {
     
     @Mock
     private PreguntaRepository preguntaRepository;
+
+    @Captor
+    ArgumentCaptor<Long> captor;
 
     @BeforeEach
     void setUp() {
@@ -194,5 +199,17 @@ class ExamenServiceImplTest {
                     "que imprime mockito en caso de que falle el test "
                     + argument + " debe ser un entero positivo";
         }
+    }
+
+    @Test
+    void testArgumentCaptor() {
+        when(examenRepository.findAll()).thenReturn(EXAMENES);
+//        when(preguntaRepository.findPreguntasPorExamenId(anyLong())).thenReturn(Datos.PREGUNTAS);
+        examenService.findExamenPorNombreConPreguntas("Matemáticas");
+
+        //ArgumentCaptor<Long> captor = ArgumentCaptor.forClass(Long.class);
+        verify(preguntaRepository).findPreguntasPorExamenId(captor.capture());
+
+        assertEquals(5L, captor.getValue());
     }
 }
