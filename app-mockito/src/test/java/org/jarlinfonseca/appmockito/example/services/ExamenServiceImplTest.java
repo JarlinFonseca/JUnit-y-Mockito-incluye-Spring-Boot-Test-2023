@@ -19,7 +19,7 @@ class ExamenServiceImplTest {
         Examen examen = service.findExamenPorNombre("Matemáticas");
         List<Examen> datos =  Arrays.asList(new Examen(5L, "Matemáticas"), new Examen(6l, "Lenguaje"),
                 new Examen(7l, "Historia"));
-        
+
         assertNotNull(examen);
         assertEquals(5L, examen.getId());
         assertEquals("Matemáticas", examen.getNombre());
