@@ -39,6 +39,12 @@ public class CuentaServiceImpl implements CuentaService {
     }
 
     @Override
+    @Transactional
+    public void deleteById(Long id) {
+        cuentaRepository.deleteById(id);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public int revisarTotalTransferencia(Long bancoId) {
         Banco banco= bancoRepository.findById(bancoId).orElseThrow();
