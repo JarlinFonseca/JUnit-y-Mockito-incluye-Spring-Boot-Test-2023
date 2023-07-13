@@ -3,14 +3,21 @@ import static org.mockito.Mockito.*;
 import  static  org.junit.jupiter.api.Assertions.*;
 import  static com.jarlinfonseca.test.springboot.app.Datos.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jarlinfonseca.test.springboot.app.Datos;
+import com.jarlinfonseca.test.springboot.app.models.TransaccionDto;
 import com.jarlinfonseca.test.springboot.app.services.CuentaService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -25,6 +32,13 @@ class CuentaControllerTest {
 
     @MockBean
     private CuentaService cuentaService;
+
+    ObjectMapper objectMapper;
+
+    @BeforeEach
+    void setUp() {
+        objectMapper = new ObjectMapper();
+    }
 
     @Test
     void testDetalle() throws Exception {
@@ -42,4 +56,25 @@ class CuentaControllerTest {
         verify(cuentaService).findById(1L);
     }
 
+    @Test
+    void testTransferir() throws Exception, JsonProcessingException {
+        //Given
+        TransaccionDto transaccionDto = new TransaccionDto();
+        transaccionDto.setCuentaOrigenId(1L);
+        transaccionDto.setCuentaDestinoId(2L);
+        transaccionDto.setMonton(new BigDecimal("100"));
+        transaccionDto.setBancoId(1L);
+
+        //When
+        mvc.perform(post("/api/cuentas/transferir")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(transaccionDto)))
+        //Then
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.date").value(LocalDate.now().toString()))
+                .andExpect(jsonPath("$.mensaje").value("Transferencia realizada con éxito!"))
+                .andExpect(jsonPath("$.transaccion.cuentaOrigenId").value(transaccionDto.getCuentaOrigenId()));
+    }
+    
 }
