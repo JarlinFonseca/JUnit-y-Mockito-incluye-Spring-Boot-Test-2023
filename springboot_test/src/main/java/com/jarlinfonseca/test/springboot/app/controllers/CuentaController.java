@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -27,10 +28,22 @@ public class CuentaController {
     @Autowired
     private CuentaService cuentaService;
 
+    @GetMapping
+    @ResponseStatus(OK)
+    public List<Cuenta> listar(){
+        return cuentaService.findAll();
+    }
+
     @GetMapping("/{id}")
     @ResponseStatus(OK)
     public Cuenta detalle(@PathVariable(name = "id") Long id){
         return cuentaService.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(CREATED)
+    public Cuenta guardar(@RequestBody Cuenta cuenta){
+        return cuentaService.save(cuenta);
     }
 
     @PostMapping("/transferir")
