@@ -57,6 +57,4 @@ public class CuentaController {
 
         return ResponseEntity.ok(response);
     }
-
-
 }
