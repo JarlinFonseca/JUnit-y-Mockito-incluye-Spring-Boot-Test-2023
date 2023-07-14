@@ -5,6 +5,7 @@ import  static  org.junit.jupiter.api.Assertions.*;
 
 import com.jarlinfonseca.test.springboot.app.models.Cuenta;
 import com.jarlinfonseca.test.springboot.app.repositories.CuentaRepository;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+@Tag("integracion_jpa")
 @DataJpaTest
 public class IntegrationJpaTest {
 

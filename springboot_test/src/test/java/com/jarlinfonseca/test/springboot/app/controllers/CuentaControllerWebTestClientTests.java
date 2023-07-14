@@ -8,6 +8,7 @@ import com.jarlinfonseca.test.springboot.app.models.TransaccionDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.Matchers.is;
 
+@Tag("integracion_wc")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 class CuentaControllerWebTestClientTests {
